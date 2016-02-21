@@ -2,7 +2,7 @@
 
 This illustrates the usage of [winnall/OSGiJavaFX][osgi-javafx].
 
-The bundle `Usage.java` creates an instance of `JavaFXLauncher` (from [winnall/OSGiJavaFX][osgi-javafx]). The name of the JavaFX `Application` to be executed is passed to the method `launch()` of `JavaFX`. This `Application` must be implemented by subclassing `AbstractJavaFXApplication`, which is abstract only in concept (i.e. it is NOT an `abstract class`). In the case implemented in this example the application is the classic JavaFX "hello world".
+The service `Usage.java` creates an instance of `JavaFXLauncher` (from [winnall/OSGiJavaFX][osgi-javafx]). The name of the JavaFX `Application` to be executed is passed to the method `JavaFXLauncher.launch()`. This `Application` must be implemented by subclassing `AbstractJavaFXApplication`, which is abstract only in concept (i.e. it is NOT an `abstract class`). In the case implemented in this example the application is the classic JavaFX "hello world".
 
 The class `HelloWorld.java` contains the "hello world" application. Note that this class may NOT be compiled as a declarative service NOR as a main class replacement as is typical with JavaFX POJOs.
 
@@ -36,6 +36,8 @@ It is probably best – when using a `ServiceTracker` as above – to clean up o
     xxxTracker.close();
   }
 ```
+
+`HelloWorld.java` looks in all other respects exactly the same as any other non-OSGi JavaFX start-up class.
 
 The accompanying `pom.xml` directs Maven to compile `OSGiJavaFXUsage` and places all the relevant JARs (including the one from [winnall/OSGiJavaFX][osgi-javafx]) into the directory `target/deploy`. If all the files in this directory are deployed appropriately into [Karaf][karaf] or another OSGi framework (or [Felix][felix], anyway), the "hello world" application runs.
 
