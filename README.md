@@ -8,7 +8,7 @@ The class `HelloWorld.java` contains the "hello world" application. Note that th
 
 `HelloWorld.java` extends `AbstractJavaFXApplication` and the following conditions have to be fulfilled:
 
-- `HellWorld.init()` must call `super.init()` (implicitly – as here – or explicitly), which registers the current class (`this`) as an OSGi service even though it has been created until JavaFX control. A variable `protected BundleContext bundlecontext`, which refers to the OSGi service thus registered, is also made available.
+- `HellWorld.init()` must call `super.init()` (implicitly – as here – or explicitly), which registers the current class (`this`) as an OSGi service even though it has been created under JavaFX control. A variable `protected BundleContext bundlecontext`, which refers to the OSGi service thus registered, is also made available.
 - `HelloWorld.start()` must call `super.start(primaryStage)` to make `primaryStage` available to its superclass and the two `onStage()` methods defined there; otherwise these two methods will not work.
 
 If other OSGi services are to be referenced in `HelloWorld` (which is not the case in the present example), they can be made available with code similar to the following:
